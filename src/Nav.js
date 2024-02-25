@@ -58,7 +58,7 @@ export default function Nav(){
   </div> 
 
   <div className='flex-1 flex justify-center ml-24 space-x-5 '>
-    <div className="inline-flex flex-row space-x-2">
+    <div className="inline-flex flex-row space-x-6">
 
         {/* <div className="bg-lime-400 rounded-full "> .
         </div> */}
