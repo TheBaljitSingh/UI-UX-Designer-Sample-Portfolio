@@ -1,4 +1,3 @@
-import { IoFlash } from "react-icons/io5";
 import { CiPen } from "react-icons/ci";
 
 
@@ -18,7 +17,7 @@ export default function Home(){
         <div className="h-screen max-w-screen">
             <div className="absolute inset-0 flex mt-32 opacity font-normal  justify-center z-2">
                 <div className="inline-block">
-                    <h1 className="text-lime-700  text-9xl select-none z-20 opacity-5 ">FEARLESS</h1>
+                    <h1 className="text-white  text-9xl select-none z-20 opacity-5 ">FEARLESS</h1>
                 </div>
             </div>
 
