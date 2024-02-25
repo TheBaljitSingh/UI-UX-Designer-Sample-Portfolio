@@ -1,23 +1,93 @@
 
-import { PiStarFourFill } from "react-icons/pi";
-import { TbExternalLink } from "react-icons/tb";
 
-import { FaLinkedinIn,FaTwitter,FaFacebook } from "react-icons/fa6";
+import React, { useEffect } from 'react';
+import { useState } from "react";
+import { ToastContainer,toast } from "react-toastify";
+
+import { PiStarFourFill } from "react-icons/pi";
+
+import { FaLinkedinIn,FaFacebook } from "react-icons/fa6";
 import {FaLinkedin} from "react-icons/fa";
 import { IoLogoBehance } from "react-icons/io5";
+// import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const externalLink = require("./external_link.png");
 const subtract = require("../src/Subtract.png");
 const emailLogo = require("../src/email-logo-png.png");
-// const vector68 = require("../src/Vector68.png")
+
+
+
+
 
 
 
 export default function Tool(){
 
 
-      
+    
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+
+   
+
+        const sendEmail = async (e)=>{
+                e.preventDefault();
+
+                let templateParams = {
+                    "Name": name,
+                    "Email": email,
+                    "Message": message,
+            
+                }
+            
+
+        
+            await emailjs
+                .send(
+                    'service_gy6bqwb', // Replace with your service ID
+                    'template_mjlaeett', // Replace with your template ID
+                    templateParams,
+                    'BJwFNkg7pRuSK3T40' // Replace with your user ID
+                )
+                .then((response) => {
+                    if(response.status===200){
+                        toast.success("Your Message Sent",{
+                            position: "top-right"
+                          })
+                    }
+
+
+                    setName("");
+                    setEmail("");
+                    setMessage("");
+                    
+                    
+                    console.log('Email sent:', response);
+
+                })
+                .catch((error) => {
+                    toast.error("Email Error..",{
+                        position: "bottom-center"
+                      })
+                    console.error('Email error:', error);
+                });
+        };
+
+
+        useEffect(()=>{
+
+
+        },[])
+          
+       
+       
+    
+    
 
 
    return (
@@ -171,10 +241,10 @@ export default function Tool(){
                   
 
 
-                        <div class="flex flex-col gap-6 w-1/2 mt-12 ml-12 text-xl ">
+                    <form  onSubmit={sendEmail} class="flex flex-col gap-6 w-1/2 mt-12 ml-12 text-xl">
 
                             <div class="relative h-11 w-full min-w-[200px] ">
-                                <input placeholder="Your Name"
+                                <input type='text' onChange={(e)=>setName(e.target.value)}  value={name} placeholder="Your Name"
                                 class="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-gray-300 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-lime-400 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0" />
                                 <label
                                 class=" after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-300 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-300 peer-focus:after:scale-x-100 peer-focus:after:border-lime-400 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
@@ -183,7 +253,7 @@ export default function Tool(){
                             </div>
 
                             <div class="relative h-11 w-full min-w-[200px] ">
-                                <input placeholder=""
+                                <input type='email' onChange={(e)=>setEmail(e.target.value)} value={email} placeholder=""
                                 class="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal  text-gray-300 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
                                 <label
                                 class="after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-300 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-300 peer-focus:after:scale-x-100 peer-focus:after:border-lime-400 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
@@ -191,7 +261,7 @@ export default function Tool(){
                                 </label>
                             </div>
                             <div class="relative h-11 w-full min-w-[200px]">
-                                <input placeholder=""
+                                <input type='text'  onChange={(e)=>setMessage(e.target.value)} value={message} placeholder=""
                                 class="peer  h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-gray-300 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
                                 <label
                                 class="after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-300 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-300 peer-focus:after:scale-x-100 peer-focus:after:border-lime-400 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
@@ -200,11 +270,18 @@ export default function Tool(){
                             </div>
 
                             <div className=" rounded-lg  bg-lime-600 hover:cursor-pointer text-center">
-                                <button className="p-2 text-gray-300 font-semibold hover:text-gray-200">Send Now</button>
+                            <button type="submit" className="p-2 text-gray-300 font-semibold hover:text-gray-200">Send Now</button>
+
                             </div>
+
+
+
+                    </form>
+
+
                           
   
-                        </div>
+                       
 
                     <div >
 
@@ -268,6 +345,7 @@ export default function Tool(){
 
 
         </div>
+        <ToastContainer/>
 
     </div>
    )
