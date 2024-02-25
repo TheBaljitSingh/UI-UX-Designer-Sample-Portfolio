@@ -259,8 +259,8 @@ export default function Tool(){
         </div>
         <div className='flex-1 flex justify-center ml-24 space-x-5'>
             <div className="inline-flex flex-row space-x-2">
-            <ul className="rounded-full text-wrap"> <a href="/#"> <FaLinkedinIn size={25} color="gray" /></a></ul>
-            <ul className="rounded-full text-wrap"><a href="/#"><IoLogoBehance size={25} color="gray" /></a></ul>
+            <ul className="rounded-full text-wrap"> <a href="https://www.linkedin.com/in/gautam-sharma-560554198/"> <FaLinkedinIn size={25} color="gray" /></a></ul>
+            <ul className="rounded-full text-wrap"><a href="https://www.behance.net/gautamsharma18"><IoLogoBehance size={25} color="gray" /></a></ul>
             <ul className="rounded-full text-wrap"><a href="/#"><FaFacebook size={25} color="gray" /></a></ul>
             </div>
         </div>
