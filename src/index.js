@@ -8,11 +8,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 console.log(root);
 root.render(
 
-    <div>
-        {console.log("hello world from render ")}
     <App  />
 
-    </div>
+    
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -5,7 +5,7 @@ import Home from './Home';
 import Tool from './Tool';
 
 
-function App() {
+export default function App() {
 
 
 
@@ -22,4 +22,3 @@ function App() {
   );
 }
 
-export default App;
