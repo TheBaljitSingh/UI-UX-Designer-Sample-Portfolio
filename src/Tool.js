@@ -326,7 +326,7 @@ export default function Tool(){
             </div>
         </div>
         <div className=''>
-            <p className="w-60 inline-flex items-center  justify-center space-x-1 ">Developed By - <span className="font-semibold hover:text-lime-400 hover:cursor-pointer"> Baljit Singh</span>  <a className=" " target="_blank" href="https://www.linkedin.com/in/thebaljitsingh/"> <FaLinkedin  className="hover:text-gray-300" size={20} color="" /></a> 
+            <p className="w-60 inline-flex items-center  justify-center space-x-1 ">Developed By - <span className="font-semibold hover:text-lime-400 hover:cursor-pointer"> &nbsp; Baljit Singh</span>  <a className=" " target="_blank" href="https://www.linkedin.com/in/thebaljitsingh/"> <FaLinkedin  className="hover:text-gray-300" size={20} color="" /></a> 
                 </p>
             
            
